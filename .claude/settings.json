@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(package.json)"
+    ],
+    "allow": [
+      "mcp__linear-server_get_issue",
+      "Bash(bun run typecheck)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run typecheck"
+          }
+        ]
+      }
+    ]
+  }
+}
